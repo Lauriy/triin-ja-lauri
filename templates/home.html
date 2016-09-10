@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load i18n static %}
+
+{% block content %}
+    <div class="row text-center">
+        <div class="small-12 columns">
+            <img alt="{% trans "Pulmakutse" %}" title="{% trans "Pulmakutse" %}" id="invitation-image"
+                 src="{% static 'img/invitation.jpg' %}">
+        </div>
+    </div>
+{% endblock %}

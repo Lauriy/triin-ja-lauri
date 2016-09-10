@@ -1,0 +1,7 @@
+[program:triinjalauri]
+command=/home/triinjalauri/triinjalauri/production-uwsgi.sh
+autostart=true
+autorestart=true
+user=triinjalauri
+stopasgroup=true
+environment=DJANGO_SETTINGS_MODULE="triinjalauri.settings.local"

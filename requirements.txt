@@ -1,0 +1,4 @@
+Django==1.8.14
+django-compressor==2.1
+psycopg2==2.6.2
+uWSGI==2.0.13.1

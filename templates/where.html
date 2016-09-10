@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="small-12 columns text-center">
+        <div class="row">
+            <a href="http://www.okoresto.ee/" title="OKO koduleht" id="tjl-oko-link">http://www.okoresto.ee/</a>
+        </div>
+        <div class="row">
+            <iframe width="800" height="600" frameborder="0" style="border:0; max-width: 80vw;"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwklaJW2gX9YV712iuYzjgjeA9wB3botM&q=59.520283,25.276094"
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <div class="row">
+            <iframe frameborder="0" width="800" height="600" style="border: 0; max-width: 80vw;"
+                    src="https://maps.google.com/maps?layer=c&panoid=F:-rq4LBuw8puA/V7d4OzH0iKI/AAAAAAAAPaU/1dT4fOSMa1U-lUnBvlOdQiDiBNGYd57-ACLIB&ie=UTF8&source=embed&output=svembed&cbp=13%2C122%2C%2C-0.1%2C3.8"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="row">
+            OKO'st ei pea tingimata kohe ära sõitma, ei <a href="{% url "transport" %}" title="Transport">bussiga</a> ega muudmoodi,
+            sest nad pakuvad numbritube. Hind peaks olema 50 €, 10 võib hommikusöögi eest lisaks maksta.
+            Kuna meie oleme 1 juba ära broneerinud, siis peaks veel 5 alles olema.
+        </div>
+    </div>
+{% endblock %}

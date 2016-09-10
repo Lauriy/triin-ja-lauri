@@ -1,0 +1,46 @@
+upstream triinjalauri_app_server {
+    server unix:///home/triinjalauri/triinjalauri.sock;
+}
+
+server {
+    server_name www.triinjalauri.ee triinjalauri.ee;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443;
+    ssl on;
+
+    ssl_certificate /home/triinjalauri/1_triinjalauri.ee_bundle.crt;
+    ssl_certificate_key /home/triinjalauri/triinjalauri.key;
+
+    server_name www.triinjalauri.ee;
+    return 301 https://triinjalauri.ee$request_uri;
+}
+
+server {
+    listen 443 ssl;
+
+    client_max_body_size 20M;
+
+    server_name triinjalauri.ee;
+
+    ssl_certificate /home/triinjalauri/1_triinjalauri.ee_bundle.crt;
+    ssl_certificate_key /home/triinjalauri/triinjalauri.key;
+
+    if ($host !~* ^(triinjalauri.ee)$ ) {
+        return 444;
+    }
+
+    keepalive_timeout 30;
+
+    location /static  {
+        alias /home/triinjalauri/static-cache;
+        expires 7d;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass triinjalauri_app_server;
+    }
+}
